@@ -20,9 +20,9 @@
             <jsp:include page="sidebar.jsp" />
             
             <div class="section col-12 col-md-9">
-                <div class="row p-3 pt-0 mt-0">
+                <div class="row pr-3 pl-3 pb-1 pt-0 mt-0">
                      <!-- RECHERCHE -->
-                    <div class="input-group input-group-md mt-3 mb-3 p-0 col-12">
+                    <div class="input-group input-group-md mt-0 mb-2 p-0 col-12">
                         <input type="text" 
                                class="form-control" 
                                placeholder="Cherchez un vol..." 
