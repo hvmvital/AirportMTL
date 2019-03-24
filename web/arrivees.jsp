@@ -33,11 +33,11 @@
                             <button class="btn btn-primary" type="button">Chercher</button>
                         </div>
                     </div>
-                    <!--BTN DÉPARTS-->
-                     <a href="#" class="btn btn-primary col-6 col-sm-6" role="button">DÉPARTS</a>       
+                    <!--BTN AUJOURD'HUI-->
+                     <a href="#" class="btn btn-primary col-6 col-sm-6" role="button">AUJOURD'HUI</a>       
                     
-                     <!--BTN ARRIVÉES-->
-                     <a href="/aa" class="btn btn-secondary col-6 col-sm-6" role="button">ARRIVÉES</a> 
+                     <!--BTN DEMAIN-->
+                     <a href="#" class="btn btn-secondary col-6 col-sm-6" role="button">DEMAIN</a> 
                 </div>
                 <!-- VOLS -->
                 <div id="vols"  class="mt-1 p-0"> 
