@@ -10,7 +10,7 @@
     <body>
         <!-- HEADER -->
         <header>
-            <p id="title-header">VOLES</p>
+            <p id="title-header">AÉROPORT DE MONTRÉAL <br> VOLES</p>
            <!-- <p class="intro">Bienvenue!</p>-->
         </header>
 
@@ -26,7 +26,7 @@
                                aria-label="Cherchez un vol..." 
                                aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">Chercher</button>
+                            <button class="btn btn-primary " type="button">Chercher</button>
                         </div>
                     </div>
                     <!--BTN DÉPARTS-->
