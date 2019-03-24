@@ -11,7 +11,7 @@
         <!-- HEADER -->
         <header>
             <p id="title-header">Arrivées</p>
-           <!-- <p class="intro">Bienvenue!</p>-->
+           <p class="intro">Bienvenue!</p>
         </header>
 
         <div class=" flex-container row p-3">
