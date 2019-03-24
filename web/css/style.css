@@ -1,0 +1,138 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.title {
+    color: #000;
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.intro {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+
+/******** HEADER ********/
+header {
+  margin: 0 auto 0;
+    max-width: 1400px;
+    padding: 10px 0 5px;
+}
+#title-header {
+    font-size: 2.3rem;
+    font-weight: 900;
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto 0;
+}
+
+/******** SECTION ********/
+.flex-container {
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+
+
+/******** SIDEBAR ********/
+#sidebar {
+    width: 100%;
+    
+
+}
+
+#sidebar a {
+    color: black;
+    text-decoration: none;
+    padding: 0 10px 5px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.8;
+    text-shadow: 3px 1px 0 gold;
+}
+
+#sidebar a:hover {
+    color: black;
+    transition: .2s;
+    text-shadow: 3px 1px 0 white;
+    background-color: gold;
+
+}
+
+
+
+
+
+
+
+/******** VOLS ********/
+#vols {
+    width: 100%;
+    text-align: center;
+}
+#vols table{
+    width: 100%;
+    text-align: center;
+
+}
+
+
+#vols td{
+    font-size: 12px;
+    padding: 5px 2px;
+
+}
+#vols th{
+
+    padding: 8px 2px ;
+
+}
+
+
+
+
+/******** @MEDIA ********/
+@media only screen and (max-width: 578px) {
+
+    .flex-container {
+        margin: 0 auto;
+        max-width: 1000px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    
+    #sidebar {
+        width: 100%;
+
+    }
+    #sidebar a {
+        padding: 0 auto;
+        padding: 0 20px;
+    }
+
+
+
+}
