@@ -30,10 +30,10 @@
                         </div>
                     </div>
                     <!--BTN DÉPARTS-->
-                     <a href="/AirportMTL/departs" class="btn btn-primary col-6 col-sm-6" role="button">DÉPARTS</a>       
+                     <a href="/departs" class="btn btn-primary col-6 col-sm-6" role="button">DÉPARTS</a>       
                     
                      <!--BTN ARRIVÉES-->
-                     <a href="/AirportMTL/arrivees" class="btn btn-secondary col-6 col-sm-6" role="button">ARRIVÉES</a>   
+                     <a href="/arrivees" class="btn btn-secondary col-6 col-sm-6" role="button">ARRIVÉES</a>   
 
                     
                 </div>
