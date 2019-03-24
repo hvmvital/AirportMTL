@@ -23,14 +23,14 @@
             <div class="section col-12 col-md-9">
                 <form>
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group  col-12 col-md-4">
                             <input 
                                 type="text" 
                                 class="form-control" 
                                 id="numTelephone" 
                                 placeholder="Télephone">
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-12 col-md-4">
 
                             <input 
                                 type="text" 
@@ -38,7 +38,7 @@
                                 id="numVol" 
                                 placeholder="Numéro de vol">
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-12 col-md-4">
                             <button type="submit" class="btn btn-primary">M'inscrire</button>
                         </div>
 
