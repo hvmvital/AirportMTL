@@ -123,8 +123,8 @@ header {
 
 
 /******** @MEDIA ********/
-@media only screen and (max-width: 578px) {
-
+@media only screen and (max-width: 768px) {
+/*
     .flex-container {
         margin: 0 auto;
         max-width: 1000px;
@@ -132,16 +132,16 @@ header {
         justify-content: flex-start;
         flex-direction: column;
     }
-    
+  */  
     #sidebar {
         width: 100%;
-
+        text-align: center;
     }
-    #sidebar a {
-        padding: 0 auto;
-        padding: 0 20px;
-    }
+    #sidebar li{
 
+        text-align: center;
+    }
+  
 
 
 }
