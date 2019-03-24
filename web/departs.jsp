@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <!--BTN AUJOURD'HUI-->
-                     <a href="#" class="btn btn-primary col-6 col-sm-6" role="button">AUJOURD'HUI</a>       
+                     <a href="#g" class="btn btn-primary col-6 col-sm-6" role="button">AUJOURD'HUI</a>       
                     
                      <!--BTN DEMAIN-->
                      <a href="#s" class="btn btn-secondary col-6 col-sm-6" role="button">DEMAIN</a> 
