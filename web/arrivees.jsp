@@ -46,8 +46,8 @@
                             <tr>
                                 <th scope="col">PRÉVU</th>
                                 <th scope="col">RÉVISÉ</th>
+                                <th scope="col">COMPAGNIE</th>
                                 <th scope="col">VOL</th>
-                                <th scope="col">#</th>
                                 <th scope="col">PROVENANCE</th>
                                 <th scope="col">ÉTAT</th>
                                 <th scope="col">SUIVRE</th>
@@ -61,7 +61,6 @@
                                 <td>AC1768</td>
                                 <td>Miami</td>
                                 <td>Retardé</td>
-                                <td>C81</td>
                                 <td>SMS</td>
 
                             </tr>

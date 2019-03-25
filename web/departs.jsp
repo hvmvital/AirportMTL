@@ -45,8 +45,8 @@
                             <tr>
                                 <th scope="col">PRÉVU</th>
                                 <th scope="col">RÉVISÉ</th>
+                                <th scope="col">COMPAGNIE</th>
                                 <th scope="col">VOL</th>
-                                <th scope="col">#</th>
                                 <th scope="col">DESTINATION</th>
                                 <th scope="col">ÉTAT</th>
                                 <th scope="col">PORTE</th>
