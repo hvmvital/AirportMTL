@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import com.connection.ConnectionDB;
 import com.model.Vols;
 import java.sql.ResultSet;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class DepartsDAO {
             while (rs.next()) {
                 int ID = rs.getInt("ID");
                String NUMEROVOL = rs.getString("NUMEROVOL");
-                int HEURE_PREVU = rs.getInt("HEURE_PREVU");
+                Time HEURE_PREVU = rs.getTime("HEURE_PREVU");
                 int ID_AEROPORT = rs.getInt("ID_AEROPORT");
                 int ID_COMPAGNIE = rs.getInt("ID_COMPAGNIE");
                 int TYPE = rs.getInt("TYPE");

@@ -38,7 +38,7 @@ public class Departs extends HttpServlet {
 
         
         
-        request.setAttribute("DEPARTS", aeroportsList);
+        request.setAttribute("DEPARTS", departsList);
         request.getRequestDispatcher("/departs.jsp").forward(request, response);
 
     }

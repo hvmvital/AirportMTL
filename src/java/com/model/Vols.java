@@ -1,17 +1,18 @@
 
 package com.model;
 
+import java.sql.Time;
 import java.util.Objects;
 
 public class Vols {
     private int ID;
     private String NumeroVol;
-    private int Heure_prevu;
+    private Time Heure_prevu;
     private int ID_AEROPORT;
     private int ID_COMPAGNIE;
     private int TYPE;
 
-    public Vols(int ID, String NumeroVol, int Heure_prevu, int ID_AEROPORT, int ID_COMPAGNIE, int TYPE) {
+    public Vols(int ID, String NumeroVol, Time Heure_prevu, int ID_AEROPORT, int ID_COMPAGNIE, int TYPE) {
         this.ID = ID;
         this.NumeroVol = NumeroVol;
         this.Heure_prevu = Heure_prevu;
@@ -36,11 +37,11 @@ public class Vols {
         this.NumeroVol = NumeroVol;
     }
 
-    public int getHeure_prevu() {
+    public Time getHeure_prevu() {
         return Heure_prevu;
     }
 
-    public void setHeure_prevu(int Heure_prevu) {
+    public void setHeure_prevu(Time Heure_prevu) {
         this.Heure_prevu = Heure_prevu;
     }
 
@@ -71,13 +72,16 @@ public class Vols {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.ID;
-        hash = 89 * hash + Objects.hashCode(this.NumeroVol);
-        hash = 89 * hash + this.Heure_prevu;
-        hash = 89 * hash + this.ID_AEROPORT;
-        hash = 89 * hash + this.TYPE;
+        hash = 97 * hash + this.ID;
+        hash = 97 * hash + Objects.hashCode(this.NumeroVol);
+        hash = 97 * hash + Objects.hashCode(this.Heure_prevu);
+        hash = 97 * hash + this.ID_AEROPORT;
+        hash = 97 * hash + this.ID_COMPAGNIE;
+        hash = 97 * hash + this.TYPE;
         return hash;
     }
+
+    
 
     @Override
     public boolean equals(Object obj) {
