@@ -7,29 +7,21 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
     <servlet>
         <servlet-name>Departs</servlet-name>
-        <servlet-class>controller.Departs</servlet-class>
+        <servlet-class>com.controller.Departs</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Arrivees</servlet-name>
-        <servlet-class>controller.Arrivees</servlet-class>
+        <servlet-class>com.controller.Arrivees</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Vols</servlet-name>
-        <servlet-class>controller.Vols</servlet-class>
+        <servlet-class>com.controller.Vols</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Alertes_sms</servlet-name>
-        <servlet-class>controller.Alertes_sms</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>2</load-on-startup>
+        <servlet-class>com.controller.Alertes_sms</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Departs</servlet-name>
@@ -46,10 +38,6 @@
     <servlet-mapping>
         <servlet-name>Alertes_sms</servlet-name>
         <url-pattern>/alertes_sms</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,6 +1,12 @@
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.dao.DepartsDAO"%>
+<%@page import="com.controller.Departs"%>
+<%@page import="com.model.Aeroport"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%
+    ArrayList<Aeroport> aeroportsList = (ArrayList)request.getAttribute("DEPARTS");
+%>
 <!DOCTYPE html>
 <html lang="fr">
     <!-- HEAD -->
@@ -11,17 +17,17 @@
         <!-- HEADER -->
         <header>
             <p id="title-header">Départs</p>
-           <p class="intro">Bienvenue!</p>
+            <p class="intro">Bienvenue!</p>
         </header>
 
         <div class=" flex-container row p-3">
 
             <!-- SIDEBAR -->
             <jsp:include page="sidebar.jsp" />
-            
+
             <div class="section col-12 col-md-9">
                 <div class="row pr-3 pl-3 pb-1 pt-0 mt-0">
-                     <!-- RECHERCHE -->
+                    <!-- RECHERCHE -->
                     <div class="input-group input-group-md mt-0 mb-2 p-0 col-12">
                         <input type="text" 
                                class="form-control" 
@@ -33,10 +39,10 @@
                         </div>
                     </div>
                     <!--BTN AUJOURD'HUI-->
-                     <a href="#g" class="btn btn-primary col-6 col-sm-6" role="button">AUJOURD'HUI</a>       
-                    
-                     <!--BTN DEMAIN-->
-                     <a href="#s" class="btn btn-secondary col-6 col-sm-6" role="button">DEMAIN</a> 
+                    <a href="#g" class="btn btn-primary col-6 col-sm-6" role="button">AUJOURD'HUI</a>       
+
+                    <!--BTN DEMAIN-->
+                    <a href="#s" class="btn btn-secondary col-6 col-sm-6" role="button">DEMAIN</a> 
                 </div>
                 <!-- VOLS -->
                 <div id="vols"  class="mt-1 p-0"> 
@@ -84,6 +90,14 @@
             </div><!-- END ROW -->
         </div><!-- END SECTION -->
 
+        <%
+            for (Aeroport aeroport : aeroportsList) {
+        %>
+        <p><%= aeroport.getID()%></p>
+        <p><%= aeroport.getNOM()%></p>
+        <p><%= aeroport.getID_VILLE()%></p>
+        <% }
+        %>
 
     </body>
 </html>
