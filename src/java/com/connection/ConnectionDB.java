@@ -2,10 +2,10 @@ package com.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConnectionDB {
-
-    public static Connection createConnection() {
+    public static Connection createConnection()  {
         Connection con = null;
         String url = "jdbc:mysql://localhost:3306/aeroportmtl"; //MySQL URL and followed by the database name
         String username = "root"; //MySQL username

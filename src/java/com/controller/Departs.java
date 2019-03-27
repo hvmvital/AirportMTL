@@ -35,14 +35,9 @@ public class Departs extends HttpServlet {
         DepartsDAO dao = new DepartsDAO();
         aeroportsList = dao.showDeparts();
 
-//        while (rs.next()) {
-//                
-//                int ID = rs.getInt("ID");
-//                String NOM = rs.getString("NOM");
-//                int ID_VILLE = rs.getInt("ID_VILLE");
-//
-//                aeroportsList.add(new Aeroport(ID, NOM, ID_VILLE));
-//            }
+
+        
+        
         request.setAttribute("DEPARTS", aeroportsList);
         request.getRequestDispatcher("/departs.jsp").forward(request, response);
 

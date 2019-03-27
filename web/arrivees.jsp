@@ -61,40 +61,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+            for (Vols vols : arriveesList) {
+        %>
+                            
+                          
                             <tr>
-                                <td>14:25<br>23 Mar.</td>
-                                <td>18:00<br>23 Mar.</td>
-                                <td>AIR CANADA</td>
-                                <td>AC1768</td>
-                                <td>Miami</td>
-                                <td>Retardé</td>
-                                <td>SMS</td>
-
+                                <td><%= vols.getHeure_prevu()%><br>23 Mar.</td>
+                                <td>Heure revisé<br>Date</td>
+                                <td><%= vols.getID_COMPAGNIE()%></td>
+                                <td><%= vols.getNumeroVol()%></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>                               
                             </tr>
-                            <tr>
-                                <td>14:25<br>23 Mar.</td>
-                                <td>18:00<br>23 Mar.</td>
-                                <td>AIR CANADA</td>
-                                <td>AC1768</td>
-                                <td>Miami</td>
-                                <td>Retardé</td>
-                                <td>SMS</td>                               
-                            </tr>
-
+ <% }
+        %>
                         </tbody>
                     </table>
                 </div><!-- END VOLS -->
             </div><!-- END ROW -->
         </div><!-- END SECTION -->
 
-  <%
-            for (Vols vols : arriveesList) {
-        %>
-        <p><%= vols.getID()%></p>
-        <p><%= vols.getNumeroVol()%></p>
-        <p><%= vols.getHeure_prevu()%></p>
-        <% }
-        %>
+  
+    
+       
         
         
     </body>
