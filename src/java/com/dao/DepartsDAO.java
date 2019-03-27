@@ -5,35 +5,37 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 //import com.mvc.bean.RegisterBean;
 import com.connection.ConnectionDB;
-import com.model.Aeroport;
+import com.model.Vols;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DepartsDAO {
 
-    public static ArrayList<Aeroport> aeroportsList;
+    public static ArrayList<Vols> departsList;
 
-    public ArrayList<Aeroport> showDeparts() throws SQLException {
+    public ArrayList<Vols> showDeparts() throws SQLException {
 
         PreparedStatement preparedStatement = null;
         Connection con = null;
-        aeroportsList = new ArrayList<Aeroport>();
+        departsList = new ArrayList<Vols>();
 
         try {
              con = ConnectionDB.createConnection();
-            String query = "select * from aeroport"; //Insert user details into the table 'USERS'
-            preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
-            //preparedStatement.setInt(1, 1001);
+            String query = "select * from vols where type=1"; 
+            preparedStatement = con.prepareStatement(query);
 
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 int ID = rs.getInt("ID");
-                String NOM = rs.getString("NOM");
-                int ID_VILLE = rs.getInt("ID_VILLE");
+               String NUMEROVOL = rs.getString("NUMEROVOL");
+                int HEURE_PREVU = rs.getInt("HEURE_PREVU");
+                int ID_AEROPORT = rs.getInt("ID_AEROPORT");
+                int ID_COMPAGNIE = rs.getInt("ID_COMPAGNIE");
+                int TYPE = rs.getInt("TYPE");
                 
-                aeroportsList.add(new Aeroport(ID, NOM, ID_VILLE));
+                departsList.add(new Vols(ID, NUMEROVOL, HEURE_PREVU,ID_AEROPORT,ID_COMPAGNIE,TYPE));
             }
 
         } catch (SQLException e) {
@@ -51,6 +53,6 @@ public class DepartsDAO {
             }
 
         }
-        return aeroportsList;
+        return departsList;
     }
 }
