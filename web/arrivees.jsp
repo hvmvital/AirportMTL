@@ -1,5 +1,12 @@
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.Vols"%>
+<%@page import="com.dao.ArriveesDAO"%>
+<%@page import="com.controller.Arrivees"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    ArrayList<Vols> arriveesList = (ArrayList)request.getAttribute("ARRIVEES");
+%>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -80,6 +87,15 @@
             </div><!-- END ROW -->
         </div><!-- END SECTION -->
 
-
+  <%
+            for (Vols vols : arriveesList) {
+        %>
+        <p><%= vols.getID()%></p>
+        <p><%= vols.getNumeroVol()%></p>
+        <p><%= vols.getHeure_prevu()%></p>
+        <% }
+        %>
+        
+        
     </body>
 </html>
