@@ -2,10 +2,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.DepartsDAO"%>
 <%@page import="com.controller.Departs"%>
-<%@page import="com.model.Aeroport"%>
+<%@page import="com.model.Vols"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    ArrayList<Aeroport> aeroportsList = (ArrayList)request.getAttribute("DEPARTS");
+    ArrayList<Vols> departsList = (ArrayList)request.getAttribute("DEPARTS");
 %>
 <!DOCTYPE html>
 <html lang="fr">
@@ -91,11 +91,11 @@
         </div><!-- END SECTION -->
 
         <%
-            for (Aeroport aeroport : aeroportsList) {
+            for (Vols vols : departsList) {
         %>
-        <p><%= aeroport.getID()%></p>
-        <p><%= aeroport.getNOM()%></p>
-        <p><%= aeroport.getID_VILLE()%></p>
+        <p><%= vols.getID()%></p>
+        <p><%= vols.getNumeroVol()%></p>
+        <p><%= vols.getHeure_prevu()%></p>
         <% }
         %>
 

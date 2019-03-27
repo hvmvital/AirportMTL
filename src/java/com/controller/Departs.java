@@ -6,7 +6,7 @@
 package com.controller;
 
 import com.dao.DepartsDAO;
-import com.model.Aeroport;
+import com.model.Vols;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -27,13 +27,13 @@ import javax.servlet.http.HttpServletResponse;
 public class Departs extends HttpServlet {
 
     
-    public static ArrayList<Aeroport> aeroportsList;
+    public static ArrayList<Vols> departsList;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         DepartsDAO dao = new DepartsDAO();
-        aeroportsList = dao.showDeparts();
+        departsList = dao.showDeparts();
 
 
         
