@@ -7,12 +7,12 @@ import java.util.Objects;
 public class Vols {
     private int ID;
     private String NumeroVol;
-    private Time Heure_prevu;
+    private String Heure_prevu;
     private int ID_AEROPORT;
     private int ID_COMPAGNIE;
     private int TYPE;
 
-    public Vols(int ID, String NumeroVol, Time Heure_prevu, int ID_AEROPORT, int ID_COMPAGNIE, int TYPE) {
+    public Vols(int ID, String NumeroVol, String Heure_prevu, int ID_AEROPORT, int ID_COMPAGNIE, int TYPE) {
         this.ID = ID;
         this.NumeroVol = NumeroVol;
         this.Heure_prevu = Heure_prevu;
@@ -37,11 +37,11 @@ public class Vols {
         this.NumeroVol = NumeroVol;
     }
 
-    public Time getHeure_prevu() {
+    public String getHeure_prevu() {
         return Heure_prevu;
     }
 
-    public void setHeure_prevu(Time Heure_prevu) {
+    public void setHeure_prevu(String Heure_prevu) {
         this.Heure_prevu = Heure_prevu;
     }
 

@@ -109,15 +109,19 @@ header {
 
 #vols td{
     font-size: 12px;
-    padding: 5px 2px;
-
+    padding: 8px 2px;
+    text-align: center;
+    vertical-align: middle;
 }
+
 #vols th{
-
-    padding: 8px 2px ;
-
+    padding: 10px 2px ;
 }
 
+.time{
+    font-size: 18px!important;
+    font-weight: 600!important;
+}
 
 
 

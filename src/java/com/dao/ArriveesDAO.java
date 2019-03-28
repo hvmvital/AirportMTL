@@ -6,12 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 //import com.mvc.bean.RegisterBean;
 import com.connection.ConnectionDB;
-import com.model.Aeroport;
+//import com.model.Aeroport;
 import com.model.Vols;
 import java.sql.ResultSet;
 import java.sql.Time;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 public class ArriveesDAO {
      public static ArrayList<Vols> arriveesList;
@@ -33,7 +33,11 @@ public class ArriveesDAO {
             while (rs.next()) {
                 int ID = rs.getInt("ID");
                 String NUMEROVOL = rs.getString("NUMEROVOL");
-                Time HEURE_PREVU = rs.getTime("HEURE_PREVU");
+                // Ici je n'ai pas trouvé comment formater Time 
+                // pour afficher juste HH:ss 
+                // Alors j'ay contourné ca avec substring
+                String HEURE_PREVU = rs.getTime("HEURE_PREVU").toString().substring(0,5);
+                // 
                 int ID_AEROPORT = rs.getInt("ID_AEROPORT");
                 int ID_COMPAGNIE = rs.getInt("ID_COMPAGNIE");
                 int TYPE = rs.getInt("TYPE");

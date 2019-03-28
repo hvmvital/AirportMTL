@@ -8,8 +8,10 @@ import com.connection.ConnectionDB;
 import com.model.Vols;
 import java.sql.ResultSet;
 import java.sql.Time;
+//import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.Date;
+//import java.util.List;
 
 public class DepartsDAO {
 
@@ -20,18 +22,28 @@ public class DepartsDAO {
         PreparedStatement preparedStatement = null;
         Connection con = null;
         departsList = new ArrayList<Vols>();
-
+        
+        //SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");
+         
+        
         try {
              con = ConnectionDB.createConnection();
             String query = "select * from vols where type=1"; 
             preparedStatement = con.prepareStatement(query);
 
             ResultSet rs = preparedStatement.executeQuery();
-
+             
+                     
             while (rs.next()) {
                 int ID = rs.getInt("ID");
-               String NUMEROVOL = rs.getString("NUMEROVOL");
-                Time HEURE_PREVU = rs.getTime("HEURE_PREVU");
+                String NUMEROVOL = rs.getString("NUMEROVOL");
+                
+                // Ici je n'ai pas trouvé comment formater Time 
+                // pour afficher juste HH:ss 
+                // Alors j'ay contourné ca avec substring
+                String HEURE_PREVU = rs.getTime("HEURE_PREVU").toString().substring(0,5);
+                // 
+                
                 int ID_AEROPORT = rs.getInt("ID_AEROPORT");
                 int ID_COMPAGNIE = rs.getInt("ID_COMPAGNIE");
                 int TYPE = rs.getInt("TYPE");

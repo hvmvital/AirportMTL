@@ -1,11 +1,16 @@
-
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.DepartsDAO"%>
 <%@page import="com.controller.Departs"%>
 <%@page import="com.model.Vols"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <%
     ArrayList<Vols> departsList = (ArrayList)request.getAttribute("DEPARTS");
+    SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");
+    String date = sdf.format(new Date());
 %>
 <!DOCTYPE html>
 <html lang="fr">
@@ -60,44 +65,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>14:25<br>23 Mar.</td>
-                                <td>18:00<br>23 Mar.</td>
-                                <td>AIR CANADA</td>
-                                <td>AC1768</td>
-                                <td>Miami</td>
-                                <td>Retardé</td>
-                                <td>C81</td>
-                                <td>SMS</td>
-
+                            <%
+                                for (Vols vols : departsList) {
+                            %>
+                           <tr>
+                                <td><p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p><%= date %></td>
+                                <td><br></td>
+                                <td><%= vols.getID_COMPAGNIE()%></td>
+                                <td><%= vols.getNumeroVol()%></td>
+                                <td><%= vols.getID_AEROPORT()%></td>
+                                <td></td>
+                                <td></td>  
+                                <td>SMS</td> 
                             </tr>
-                            <tr>
-                                <td>14:25<br>23 Mar.</td>
-                                <td>18:00<br>23 Mar.</td>
-                                <td>AIR CANADA</td>
-                                <td>AC1768</td>
-                                <td>Miami</td>
-                                <td>Retardé</td>
-                                <td>C81</td>
-                                <td>SMS</td>                               
-                            </tr>
-
-
-
+                            <% }
+                            %>
                         </tbody>
                     </table>
                 </div><!-- END VOLS -->
             </div><!-- END ROW -->
-        </div><!-- END SECTION -->
-
-        <%
-            for (Vols vols : departsList) {
-        %>
-        <p><%= vols.getID()%></p>
-        <p><%= vols.getNumeroVol()%></p>
-        <p><%= vols.getHeure_prevu()%></p>
-        <% }
-        %>
-
+        </div><!-- END SECTION -->     
     </body>
 </html>

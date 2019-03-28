@@ -7,9 +7,12 @@ import java.sql.SQLException;
 public class ConnectionDB {
     public static Connection createConnection()  {
         Connection con = null;
-        String url = "jdbc:mysql://localhost:3306/aeroportmtl"; //MySQL URL and followed by the database name
-        String username = "root"; //MySQL username
-        String password = ""; //MySQL password
+//        String url = "jdbc:mysql://localhost:3306/aeroportmtl"; //MySQL URL and followed by the database name
+//        String username = "root"; //MySQL username
+//        String password = ""; //MySQL password
+        String url = "jdbc:mysql://69.90.163.190:3306/konto280_aeroportmtl"; //MySQL URL and followed by the database name
+        String username = "konto280_aero"; //MySQL username
+        String password = "aeroportmtl"; //MySQL password
 
         try {
             try {
