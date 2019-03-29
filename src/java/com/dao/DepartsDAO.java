@@ -28,7 +28,14 @@ public class DepartsDAO {
         
         try {
              con = ConnectionDB.createConnection();
-            String query = "select * from vols where type=1"; 
+            String query =  "select v.*, c.nom NOM_COMPAGNIE, s.nom NOM_STATUT, a.NOM NOM_AEROPORT, d.porte PORT"
+                    + "     from vols v,compagnie c, statut s , details d, ville l, aeroport a"
+                    + "     where v.id_compagnie=c.id "
+                    + "     and v.id=d.id_vol"
+                    + "     and d.statut = s.id"
+                    + "     and v.ID_aeroport=a.id"
+                    + "     and a.ID_VILLE= l.id"
+                    + "     and v.type=1"; 
             preparedStatement = con.prepareStatement(query);
 
             ResultSet rs = preparedStatement.executeQuery();
@@ -46,9 +53,14 @@ public class DepartsDAO {
                 
                 int ID_AEROPORT = rs.getInt("ID_AEROPORT");
                 int ID_COMPAGNIE = rs.getInt("ID_COMPAGNIE");
+                String NOM_AEROPORT = rs.getString("NOM_AEROPORT");
+                String PORT = rs.getString("PORT");
+                String NOM_COMPAGNIE = rs.getString("NOM_COMPAGNIE");
+                String NOM_STATUT = rs.getString("NOM_STATUT");
                 int TYPE = rs.getInt("TYPE");
                 
-                departsList.add(new Vols(ID, NUMEROVOL, HEURE_PREVU,ID_AEROPORT,ID_COMPAGNIE,TYPE));
+                
+                departsList.add(new Vols(ID, NUMEROVOL, HEURE_PREVU,ID_AEROPORT,NOM_AEROPORT,ID_COMPAGNIE,NOM_COMPAGNIE,NOM_STATUT,PORT,TYPE));
             }
 
         } catch (SQLException e) {

@@ -71,11 +71,11 @@
                            <tr>
                                 <td><p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p><%= date %></td>
                                 <td><br></td>
-                                <td><%= vols.getID_COMPAGNIE()%></td>
+                                <td><%= vols.getNOM_COMPAGNIE()%></td>
                                 <td><%= vols.getNumeroVol()%></td>
-                                <td><%= vols.getID_AEROPORT()%></td>
-                                <td></td>
-                                <td></td>  
+                                <td><%= vols.getNOM_AEROPORT()%></td>
+                                <td><%= vols.getNOM_STATUT()%></td>
+                                <td><%= vols.getPORT()%></td>  
                                 <td>SMS</td> 
                             </tr>
                             <% }

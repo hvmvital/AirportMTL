@@ -9,16 +9,64 @@ public class Vols {
     private String NumeroVol;
     private String Heure_prevu;
     private int ID_AEROPORT;
+    private String NOM_AEROPORT;
     private int ID_COMPAGNIE;
+    private String NOM_COMPAGNIE;
+    private String NOM_STATUT;
+    private String PORT;
     private int TYPE;
 
-    public Vols(int ID, String NumeroVol, String Heure_prevu, int ID_AEROPORT, int ID_COMPAGNIE, int TYPE) {
+    public Vols(int ID, String NumeroVol, String Heure_prevu, int ID_AEROPORT, String NOM_AEROPORT, int ID_COMPAGNIE, String NOM_COMPAGNIE, String NOM_STATUT, String PORT, int TYPE) {
         this.ID = ID;
         this.NumeroVol = NumeroVol;
         this.Heure_prevu = Heure_prevu;
         this.ID_AEROPORT = ID_AEROPORT;
+        this.NOM_AEROPORT = NOM_AEROPORT;
         this.ID_COMPAGNIE = ID_COMPAGNIE;
+        this.NOM_COMPAGNIE = NOM_COMPAGNIE;
+        this.NOM_STATUT = NOM_STATUT;
+        this.PORT = PORT;
         this.TYPE = TYPE;
+    }
+
+    public String getPORT() {
+        return PORT;
+    }
+
+    public void setPORT(String PORT) {
+        this.PORT = PORT;
+    }
+
+   
+
+ 
+    public String getNOM_STATUT() {
+        return NOM_STATUT;
+    }
+
+    public void setNOM_STATUT(String NOM_STATUT) {
+        this.NOM_STATUT = NOM_STATUT;
+    }
+
+    public String getNOM_AEROPORT() {
+        return NOM_AEROPORT;
+    }
+
+    public void setNOM_AEROPORT(String NOM_AEROPORT) {
+        this.NOM_AEROPORT = NOM_AEROPORT;
+    }
+    
+
+ 
+
+
+
+    public String getNOM_COMPAGNIE() {
+        return NOM_COMPAGNIE;
+    }
+
+    public void setNOM_COMPAGNIE(String NOM_COMPAGNIE) {
+        this.NOM_COMPAGNIE = NOM_COMPAGNIE;
     }
 
     public int getID() {
