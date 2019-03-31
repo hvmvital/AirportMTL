@@ -28,18 +28,21 @@ public class Departs extends HttpServlet {
 
     
     public static ArrayList<Vols> departsList;
+    public static ArrayList<Vols> departsListDemain;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        
         DepartsDAO dao = new DepartsDAO();
         departsList = dao.showDeparts();
-
-
-        
+        departsListDemain = dao.showDepartsDemain();
         
         request.setAttribute("DEPARTS", departsList);
-        request.getRequestDispatcher("/departs.jsp").forward(request, response);
+        request.setAttribute("DEPARTS_DEMAIN", departsListDemain);
+        
+        String destination = "/departs.jsp";
+        request.getRequestDispatcher(destination).forward(request, response);
 
     }
 

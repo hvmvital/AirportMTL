@@ -2,12 +2,15 @@
 package com.model;
 
 import java.sql.Time;
+import java.util.Date;
 import java.util.Objects;
 
 public class Vols {
     private int ID;
     private String NumeroVol;
     private String Heure_prevu;
+    private String HEURE_REVISE;
+    private Date DATE_REVISE;
     private int ID_AEROPORT;
     private String NOM_AEROPORT;
     private int ID_COMPAGNIE;
@@ -16,10 +19,24 @@ public class Vols {
     private String PORT;
     private int TYPE;
 
-    public Vols(int ID, String NumeroVol, String Heure_prevu, int ID_AEROPORT, String NOM_AEROPORT, int ID_COMPAGNIE, String NOM_COMPAGNIE, String NOM_STATUT, String PORT, int TYPE) {
+    public Vols(
+            int ID, 
+            String NumeroVol, 
+            String Heure_prevu,
+            String HEURE_REVISE,
+            Date DATE_REVISE, 
+            int ID_AEROPORT, 
+            String NOM_AEROPORT, 
+            int ID_COMPAGNIE, 
+            String NOM_COMPAGNIE, 
+            String NOM_STATUT, 
+            String PORT, 
+            int TYPE) {
         this.ID = ID;
         this.NumeroVol = NumeroVol;
         this.Heure_prevu = Heure_prevu;
+        this.HEURE_REVISE = HEURE_REVISE;
+        this.DATE_REVISE = DATE_REVISE;
         this.ID_AEROPORT = ID_AEROPORT;
         this.NOM_AEROPORT = NOM_AEROPORT;
         this.ID_COMPAGNIE = ID_COMPAGNIE;
@@ -28,6 +45,24 @@ public class Vols {
         this.PORT = PORT;
         this.TYPE = TYPE;
     }
+
+    public String getHEURE_REVISE() {
+        return HEURE_REVISE;
+    }
+
+    public void setHEURE_REVISE(String HEURE_REVISE) {
+        this.HEURE_REVISE = HEURE_REVISE;
+    }
+
+    public Date getDATE_REVISE() {
+        return DATE_REVISE;
+    }
+
+    public void setDATE_REVISE(Date DATE_REVISE) {
+        this.DATE_REVISE = DATE_REVISE;
+    }
+
+   
 
     public String getPORT() {
         return PORT;

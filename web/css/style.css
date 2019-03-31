@@ -101,10 +101,13 @@ header {
     text-align: center;
 }
 #vols table{
+
     width: 100%;
     text-align: center;
 
 }
+
+
 
 
 #vols td{
@@ -121,6 +124,12 @@ header {
 .time{
     font-size: 18px!important;
     font-weight: 600!important;
+}
+
+.numVol{
+    font-size: 12px!important;
+    font-weight: 700!important;
+    
 }
 
 

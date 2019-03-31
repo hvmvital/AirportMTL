@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,8 +11,20 @@
 
 <%
     ArrayList<Vols> departsList = (ArrayList)request.getAttribute("DEPARTS");
+    ArrayList<Vols> departsListDemain = (ArrayList)request.getAttribute("DEPARTS_DEMAIN");
+    
+    
     SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");
-    String date = sdf.format(new Date());
+    //String date = sdf.format(new Date());
+    
+    
+    Calendar calendar = Calendar.getInstance();
+    Date today_date = calendar.getTime();
+    String today = sdf.format(today_date);
+    
+    calendar.add(Calendar.DAY_OF_YEAR, 1);
+    Date tomorrow_date = calendar.getTime();
+    String tomorrow = sdf.format(tomorrow_date);
 %>
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,14 +58,15 @@
                         </div>
                     </div>
                     <!--BTN AUJOURD'HUI-->
-                    <a href="#g" class="btn btn-primary col-6 col-sm-6" role="button">AUJOURD'HUI</a>       
+                    <a href="#aujourdhui" class="btn btn-primary col-3 col-sm-3" role="button">AUJOURD'HUI</a>       
 
                     <!--BTN DEMAIN-->
-                    <a href="#s" class="btn btn-secondary col-6 col-sm-6" role="button">DEMAIN</a> 
+                    <a href="#demain" class="btn btn-warning col-3 col-sm-3" role="button">DEMAIN</a> 
                 </div>
+               
                 <!-- VOLS -->
                 <div id="vols"  class="mt-1 p-0"> 
-                    <table class="table table-dark">
+                    <table class="table table-dark table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">PRÉVU</th>
@@ -64,20 +79,81 @@
                                 <th scope="col">SUIVRE</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <!-- AUJOURDHUI -->
+                        <tbody id="aujourdhui">
+                            <tr class="bg-primary text-light">
+                                <td colspan="8">
+                                    <p class="time p-0 m-0"><%= today %></p>
+                                    
+                                </td>
+                                
+                            </tr>
                             <%
                                 for (Vols vols : departsList) {
                             %>
-                           <tr>
-                                <td><p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p><%= date %></td>
-                                <td><br></td>
+                            
+                           <tr >
+                                <td>
+                                    <p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p>
+                                    <%= today %>
+                                </td>
+                                <td>
+                                    <p class="time p-0 m-0"><%= vols.getHEURE_REVISE()%></p>
+                                    
+                                    <%= sdf.format(vols.getDATE_REVISE()) %>
+                                </td>
                                 <td><%= vols.getNOM_COMPAGNIE()%></td>
-                                <td><%= vols.getNumeroVol()%></td>
+                                <td class="numVol text-info"><%= vols.getNumeroVol()%></td>
                                 <td><%= vols.getNOM_AEROPORT()%></td>
                                 <td><%= vols.getNOM_STATUT()%></td>
                                 <td><%= vols.getPORT()%></td>  
-                                <td>SMS</td> 
+                                <td><a href="/alertes-sms.jsp" >  <!-- servlet SMS a changer -->
+                                        <img src="images/sms.png"
+                                             width="35"
+                                         alt="Notification SMS" 
+                                         title="Notification SMS"></a>
+                                </td>  
                             </tr>
+   
+                            <% }
+                            %>
+                        </tbody>
+                        
+                        <!-- DEMAIN -->
+                        <tbody id="demain"  >
+                            <tr class="bg-warning text-dark">
+                                <td colspan="8">
+                                    <p class="time p-0 m-0"><%= tomorrow %></p>
+                                    
+                                </td>
+                                
+                            </tr>
+                            <%
+                                for (Vols vols : departsListDemain) {
+                            %>
+                            
+                            <tr>
+                                <td>
+                                    <p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p>
+                                    <%= tomorrow %>
+                                </td>
+                                <td>
+                                    <p class="time p-0 m-0"><%= vols.getHEURE_REVISE()%></p>
+                                    <%= sdf.format(vols.getDATE_REVISE()) %>
+                                </td>
+                                <td><%= vols.getNOM_COMPAGNIE()%></td>
+                                <td class="numVol text-info"><%= vols.getNumeroVol()%></td>
+                                <td><%= vols.getNOM_AEROPORT()%></td>
+                                <td><%= vols.getNOM_STATUT()%></td>
+                                <td><%= vols.getPORT()%></td>  
+                                <td><a href="/alertes-sms.jsp" >  <!-- servlet SMS a changer -->
+                                        <img src="images/sms.png"
+                                             width="35"
+                                         alt="Notification SMS" 
+                                         title="Notification SMS"></a>
+                                </td> 
+                            </tr>   
+
                             <% }
                             %>
                         </tbody>

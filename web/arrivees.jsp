@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,8 +11,18 @@
 
 <%
     ArrayList<Vols> arriveesList = (ArrayList) request.getAttribute("ARRIVEES");
+    
     SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");
-    String date = sdf.format(new Date());
+    //String date = sdf.format(new Date());
+    
+    
+    Calendar calendar = Calendar.getInstance();
+    Date today_date = calendar.getTime();
+    String today = sdf.format(today_date);
+    
+    calendar.add(Calendar.DAY_OF_YEAR, 1);
+    Date tomorrow_date = calendar.getTime();
+    String tomorrow = sdf.format(tomorrow_date);
 %>
 
 <!DOCTYPE html>
@@ -46,10 +58,10 @@
                         </div>
                     </div>
                     <!--BTN AUJOURD'HUI-->
-                    <a href="#" class="btn btn-primary col-6 col-sm-6" role="button">AUJOURD'HUI</a>       
+                    <a href="#" class="btn btn-primary col-3 col-sm-3" role="button">AUJOURD'HUI</a>       
 
                     <!--BTN DEMAIN-->
-                    <a href="#" class="btn btn-secondary col-6 col-sm-6" role="button">DEMAIN</a> 
+                    <a href="#" class="btn btn-secondary col-3 col-sm-3" role="button">DEMAIN</a> 
                 </div>
                 <!-- VOLS -->
                 <div id="vols"  class="mt-1 p-0"> 
@@ -71,13 +83,24 @@
                             %>
 
                            <tr>
-                               <td><p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p><%= date %></td>
-                                <td><br></td>
+                               <td>
+                                   <p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p>
+                                   <%= today %>
+                               </td>
+                                <td>
+                                    <p class="time p-0 m-0"><%= vols.getHEURE_REVISE()%></p>
+                                    <%= sdf.format(vols.getDATE_REVISE()) %>
+                                </td>
                                 <td><%= vols.getNOM_COMPAGNIE()%></td>
-                                <td><%= vols.getNumeroVol()%></td>
+                                <td class="numVol text-info"><%= vols.getNumeroVol()%></td>
                                 <td><%= vols.getNOM_AEROPORT()%></td>
                                 <td><%= vols.getNOM_STATUT()%></td>
-                                <td>SMS</td>                               
+                                <td><a href="/alertes-sms.jsp" >  <!-- servlet SMS a changer -->
+                                        <img src="images/sms.png"
+                                             width="35"
+                                         alt="Notification SMS" 
+                                         title="Notification SMS"></a>
+                                </td>                                
                             </tr>
                             <% }
                             %>
