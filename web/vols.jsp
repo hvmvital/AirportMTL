@@ -27,7 +27,9 @@
                                aria-label="Cherchez un vol..." 
                                aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary " type="button">Chercher</button>
+                            <!--BTN Chercher-->
+                            <a href="#filtrageDepart" class="btn btn-primary" role="button">Chercher</a>  
+                            
                         </div>
                     </div>
                     <!--BTN DÉPARTS-->

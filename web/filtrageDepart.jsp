@@ -3,16 +3,16 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.dao.DepartsDAO"%>
-<%@page import="com.controller.FiltreDeparts"%>
+<%@page import="com.dao.FiltreDAO"%>
 <%@page import="com.controller.Departs"%>
+<%@page import="com.controller.FiltreDeparts"%>
 <%@page import="com.model.Vols"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
 <%
-    ArrayList<Vols> departsList = (ArrayList)request.getAttribute("DEPARTS");
-    ArrayList<Vols> departsListDemain = (ArrayList)request.getAttribute("DEPARTS_DEMAIN");
+    ArrayList<Vols> departsFList = (ArrayList)request.getAttribute("FILTRE_DEPARTS");
+    
     
     
     SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");
@@ -37,7 +37,8 @@
         <!-- HEADER -->
         <header>
             <p id="title-header">Départs</p>
-            <p class="intro">Bienvenue!</p>
+            <p class="intro">Bienvenue! </p>
+            
         </header>
 
         <div class=" flex-container row p-3">
@@ -49,29 +50,16 @@
                 <div class="row pr-3 pl-3 pb-1 pt-0 mt-0">
                     <!-- RECHERCHE -->
                     <div class="input-group input-group-md mt-0 mb-2 p-0 col-12">
-                        
-                        
-<form action="filtreDeparts"  method="GET">
-
                         <input type="text" 
-                               name="filtre"
                                class="form-control" 
                                placeholder="Cherchez un vol..." 
                                aria-label="Cherchez un vol..." 
-                               aria-describedby="basic-addon2"
-                               >
-                        
+                               aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            
-                            <button type="submit" class="btn btn-primary" >Chercher</button> 
+                            <button class="btn btn-primary" type="button">Chercher</button>
                         </div>
-</form>
                     </div>
-                    <!--BTN AUJOURD'HUI-->
-                    <a href="#aujourdhui" class="btn btn-primary col-3 col-sm-3" role="button">AUJOURD'HUI</a>       
-
-                    <!--BTN DEMAIN-->
-                    <a href="#demain" class="btn btn-warning col-3 col-sm-3" role="button">DEMAIN</a> 
+                    
                 </div>
                
                 <!-- VOLS -->
@@ -89,7 +77,7 @@
                                 <th scope="col">SUIVRE</th>
                             </tr>
                         </thead>
-                        <!-- AUJOURDHUI -->
+                        <!-- FILTRAGE -->
                         <tbody id="aujourdhui">
                             <tr class="bg-primary text-light">
                                 <td colspan="8">
@@ -99,7 +87,7 @@
                                 
                             </tr>
                             <%
-                                for (Vols vols : departsList) {
+                                for (Vols vols : departsFList) {
                             %>
                             
                            <tr >
@@ -129,44 +117,7 @@
                             %>
                         </tbody>
                         
-                        <!-- DEMAIN -->
-                        <tbody id="demain"  >
-                            <tr class="bg-warning text-dark">
-                                <td colspan="8">
-                                    <p class="time p-0 m-0"><%= tomorrow %></p>
-                                    
-                                </td>
-                                
-                            </tr>
-                            <%
-                                for (Vols vols : departsListDemain) {
-                            %>
-                            
-                            <tr>
-                                <td>
-                                    <p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p>
-                                    <%= tomorrow %>
-                                </td>
-                                <td>
-                                    <p class="time p-0 m-0"><%= vols.getHEURE_REVISE()%></p>
-                                    <%= sdf.format(vols.getDATE_REVISE()) %>
-                                </td>
-                                <td><%= vols.getNOM_COMPAGNIE()%></td>
-                                <td class="numVol text-info"><%= vols.getNumeroVol()%></td>
-                                <td><%= vols.getNOM_AEROPORT()%></td>
-                                <td><%= vols.getNOM_STATUT()%></td>
-                                <td><%= vols.getPORT()%></td>  
-                                <td><a href="/alertes-sms.jsp" >  <!-- servlet SMS a changer -->
-                                        <img src="images/sms.png"
-                                             width="35"
-                                         alt="Notification SMS" 
-                                         title="Notification SMS"></a>
-                                </td> 
-                            </tr>   
-
-                            <% }
-                            %>
-                        </tbody>
+                        
                     </table>
                 </div><!-- END VOLS -->
             </div><!-- END ROW -->
