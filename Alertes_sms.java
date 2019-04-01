@@ -5,7 +5,9 @@
  */
 package com.controller;
 
+//import static com.controller.Departs.aeroportsList;
 import com.dao.AlertesSmsDAO;
+//import com.dao.DepartsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -56,8 +58,8 @@ public class Alertes_sms extends HttpServlet {
           
            AlertesSmsDAO dao = new AlertesSmsDAO();
         
-       //int nvol = Integer.parseInt(NumeroVol);
-       dao.inscrire(telephone,NumeroVol);
+       int nvol = Integer.parseInt(NumeroVol);
+       dao.inscrire(telephone,nvol);
         }
     }
 
@@ -78,16 +80,10 @@ public class Alertes_sms extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Alertes_sms.class.getName()).log(Level.SEVERE, null, ex);
         }
+		
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
