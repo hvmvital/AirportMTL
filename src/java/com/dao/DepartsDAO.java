@@ -35,6 +35,7 @@ public class DepartsDAO {
                     + "     and v.ID_aeroport=a.id"
                     + "     and a.ID_VILLE= l.id"
                     + "     and v.type=1 "
+                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()))"
                     + "     ORDER BY v.HEURE_PREVU";
             preparedStatement = con.prepareStatement(query);
 
@@ -120,6 +121,7 @@ public class DepartsDAO {
                     + "     and v.ID_aeroport=a.id"
                     + "     and a.ID_VILLE= l.id"
                     + "     and v.type=1"
+                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()+ INTERVAL 1 DAY))"
                     + "     ORDER BY v.HEURE_PREVU";
             preparedStatement = con.prepareStatement(query);
 
