@@ -5,6 +5,8 @@
  */
 package com.controller;
 
+import static com.controller.Departs.departsList;
+import static com.controller.Departs.departsListDemain;
 import com.dao.FiltreDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FiltreDeparts extends HttpServlet {
 
     
-     public static ArrayList<com.model.Vols> departsFList;
+     public static ArrayList<com.model.Vols> departsList;
     
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -36,13 +38,20 @@ public class FiltreDeparts extends HttpServlet {
         String filtre=request.getParameter("filtre");
         
         FiltreDAO dao = new FiltreDAO();
-        departsFList = dao.showFiltreDeparts(filtre);
         
-        request.setAttribute("FILTRE_DEPARTS", departsFList);
+        request.setAttribute("DEPARTS", departsList);
+        
+        
+        departsList = dao.showFiltreDeparts(filtre);
+        departsListDemain = dao.showFiltreDepartsDemain(filtre);
+        
+        request.setAttribute("DEPARTS", departsList);
+        request.setAttribute("DEPARTS_DEMAIN", departsListDemain);
+        
         
       
         
-        String destination = "/filtrageDepart.jsp";
+        String destination = "/departs.jsp";
         request.getRequestDispatcher(destination).forward(request, response);
 
     }

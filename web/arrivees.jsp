@@ -48,14 +48,19 @@
                 <div class="row pr-3 pl-3 pb-1 pt-0 mt-0">
                     <!-- RECHERCHE -->
                     <div class="input-group input-group-md mt-0 mb-2 p-0 col-12">
-                        <input type="text" 
-                               class="form-control" 
-                               placeholder="Cherchez un vol..." 
-                               aria-label="Cherchez un vol..." 
-                               aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">Chercher</button>
-                        </div>
+                        <form action="filtreArrivees"  method="GET">
+                            <input type="text" 
+                                   name="filtre"
+                                   class="form-control" 
+                                   placeholder="Cherchez un vol..." 
+                                   aria-label="Cherchez un vol..." 
+                                   aria-describedby="basic-addon2"
+                                   >
+
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary" >Chercher</button> 
+                            </div>
+                        </form>
                     </div>
                     <!--BTN AUJOURD'HUI-->
                     <a href="#" class="btn btn-primary col-3 col-sm-3" role="button">AUJOURD'HUI</a>       
