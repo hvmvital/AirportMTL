@@ -39,7 +39,7 @@ public class FiltreDAO {
                     + "     and v.ID_AEROPORT=a.ID"
                     + "     and a.ID_VILLE= l.ID"
                     + "     and v.TYPE=1 "
-                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()+ INTERVAL 1 DAY))"
+                     + "    and d.date_prevu=(SELECT DATE(SYSDATE()))"
                     + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%' or d.DATE_PREVU like '%"+filtre+"%') "
                     + "     ORDER BY v.HEURE_PREVU";
             preparedStatement = con.prepareStatement(query);
