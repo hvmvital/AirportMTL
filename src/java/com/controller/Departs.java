@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.controller;
 
 import com.dao.DepartsDAO;
@@ -34,9 +30,10 @@ public class Departs extends HttpServlet {
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String filtre=request.getParameter("filtre");
         DepartsDAO dao = new DepartsDAO();
-        departsList = dao.showDeparts();
-        departsListDemain = dao.showDepartsDemain();
+        departsList = dao.showDeparts(filtre);
+        departsListDemain = dao.showDepartsDemain(filtre);
         
         request.setAttribute("DEPARTS", departsList);
         request.setAttribute("DEPARTS_DEMAIN", departsListDemain);

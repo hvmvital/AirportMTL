@@ -18,12 +18,14 @@ public class DepartsDAO {
     public static ArrayList<Vols> departsList;
     public static ArrayList<Vols> departsListDemain;
     
-    public ArrayList<Vols> showDeparts() throws SQLException {
+    public ArrayList<Vols> showDeparts(String filtre) throws SQLException {
         
         PreparedStatement preparedStatement = null;
         Connection con = null;
         departsList = new ArrayList<Vols>();
-        
+        if(filtre == null){
+            filtre = "%";
+        }
 
         try {
             con = ConnectionDB.createConnection();
@@ -35,7 +37,8 @@ public class DepartsDAO {
                     + "     and v.ID_aeroport=a.id"
                     + "     and a.ID_VILLE= l.id"
                     + "     and v.type=1 "
-                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()))"
+//                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()))"
+                    + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%') "
                     + "     ORDER BY v.HEURE_PREVU";
             preparedStatement = con.prepareStatement(query);
 
@@ -47,7 +50,7 @@ public class DepartsDAO {
                 // Ici je n'ai pas trouvé comment formater Time 
                 // pour afficher juste HH:ss 
                 // Alors j'ay contourné ca avec substring
-                String HEURE_PREVU = rs.getTime("HEURE_PREVU").toString().substring(0, 5);
+                Time HEURE_PREVU = rs.getTime("HEURE_PREVU");
                 // 
                 String HEURE_REVISE = "-";
                 if (rs.getTime("HEURE_REVISE") != null) {
@@ -101,11 +104,15 @@ public class DepartsDAO {
         }
         return departsList;
     }
-    public ArrayList<Vols> showDepartsDemain() throws SQLException {
+    public ArrayList<Vols> showDepartsDemain(String filtre) throws SQLException {
 
         PreparedStatement preparedStatement = null;
         Connection con = null;
         departsListDemain = new ArrayList<Vols>();
+        
+        if(filtre == null){
+            filtre = "%";
+        }
         
 //        Calendar calendar = Calendar.getInstance();
 //        calendar.add(Calendar.DAY_OF_YEAR, 1);
@@ -121,7 +128,8 @@ public class DepartsDAO {
                     + "     and v.ID_aeroport=a.id"
                     + "     and a.ID_VILLE= l.id"
                     + "     and v.type=1"
-                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()+ INTERVAL 1 DAY))"
+//                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()+ INTERVAL 1 DAY))"
+                    + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%') "
                     + "     ORDER BY v.HEURE_PREVU";
             preparedStatement = con.prepareStatement(query);
 
@@ -134,7 +142,7 @@ public class DepartsDAO {
                 // Ici je n'ai pas trouvé comment formater Time 
                 // pour afficher juste HH:ss 
                 // Alors j'ay contourné ca avec substring
-                String HEURE_PREVU = rs.getTime("HEURE_PREVU").toString().substring(0, 5);
+                Time HEURE_PREVU = rs.getTime("HEURE_PREVU");
                 // 
                 String HEURE_REVISE = "-";
                 if (rs.getTime("HEURE_REVISE") != null ) {

@@ -45,7 +45,7 @@ public class ArriveesDAO {
                 // Ici je n'ai pas trouvé comment formater Time 
                 // pour afficher juste HH:ss 
                 // Alors j'ay contourné ca avec substring
-                String HEURE_PREVU = rs.getTime("HEURE_PREVU").toString().substring(0,5);
+                Time HEURE_PREVU = rs.getTime("HEURE_PREVU");
                 // 
                 String HEURE_REVISE = "-";
                 if (rs.getTime("HEURE_REVISE") != null) {

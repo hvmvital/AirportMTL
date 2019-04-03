@@ -1,10 +1,10 @@
+<%@page import="java.sql.Time"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.DepartsDAO"%>
-<%@page import="com.controller.FiltreDeparts"%>
 <%@page import="com.controller.Departs"%>
 <%@page import="com.model.Vols"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,9 +21,14 @@
     Date today_date = calendar.getTime();
     String today = sdf.format(today_date);
 
+
     calendar.add(Calendar.DAY_OF_YEAR, 1);
     Date tomorrow_date = calendar.getTime();
     String tomorrow = sdf.format(tomorrow_date);
+    
+    Calendar cal = Calendar.getInstance();
+    Date currentTime = cal.getTime();
+    
 %>
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,7 +52,7 @@
                 <div class="row pr-3 pl-3 pb-1 pt-0 mt-0">
                     <!-- RECHERCHE -->
                     <div class="input-group input-group-md mt-0 mb-2 p-0 col-12">
-                        <form action="filtreDeparts" method="GET">
+                        <form action="departs" method="GET">
                             <input type="text" 
                                    name="filtre"
                                    class="form-control" 
@@ -62,10 +67,10 @@
                         </form>
                     </div>
                     <!--BTN AUJOURD'HUI-->
-                    <a href="#aujourdhui" class="btn btn-primary col-3 col-sm-3" role="button">AUJOURD'HUI</a>       
+                    <a  href="#" id="bntToday" class="btn btn-primary col-3 col-sm-3" role="button">AUJOURD'HUI</a>       
 
                     <!--BTN DEMAIN-->
-                    <a href="#demain" class="btn btn-warning col-3 col-sm-3" role="button">DEMAIN</a> 
+                    <a href="#" id="bntTomorrow" class="btn btn-warning col-3 col-sm-3" role="button">DEMAIN</a> 
                 </div>
 
                 <!-- VOLS -->
@@ -87,15 +92,14 @@
                         <tbody id="aujourdhui">
                             <tr class="bg-primary text-light">
                                 <td colspan="8">
-                                    <p class="time p-0 m-0"><%= today%></p>
-
+                                    <p class="time p-0 m-0"><%= today %></p>
                                 </td>
 
                             </tr>
                             <%
                                 for (Vols vols : departsList) {
+                                    if(vols.getHeure_prevu().after(today_date)){
                             %>
-
                             <tr >
                                 <td>
                                     <p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p>
@@ -119,7 +123,7 @@
                                 </td>  
                             </tr>
 
-                            <% }
+                            <% }}
                             %>
                         </tbody>
 
