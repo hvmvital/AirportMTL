@@ -1,8 +1,12 @@
 body {
     margin-left: auto;
     margin-right: auto;
+    background-image:  url("/images/avion.jpg");
+    
 }
-
+p{
+    color: aliceblue;
+}
 
 .title {
     color: #000;
@@ -60,9 +64,14 @@ header {
 #sidebar {
     width: 100px;
 
+  
+
 }
 #sidebar li{
+
     text-align: right;
+    background-color: #1E90FF;
+    
 }
 .lead{
      color: black;
@@ -88,7 +97,9 @@ header {
     background-color: gold;
 
 }
-
+#image{
+    background-image: url("avion.jpg");
+}
 
 
 
@@ -122,7 +133,7 @@ header {
 }
 
 .time{
-    font-size: 18px!important;
+    font-size: 16px!important;
     font-weight: 600!important;
 }
 
@@ -154,6 +165,6 @@ header {
         text-align: center;
     }
   
-
+   
 
 }

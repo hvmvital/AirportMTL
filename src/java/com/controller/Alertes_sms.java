@@ -35,33 +35,31 @@ public class Alertes_sms extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        
-          
-        
-       String telephone = request.getParameter("numTelephone");
-       String NumeroVol = request.getParameter("numVol");
-        //if (telephone!= null){
-            
-       
-       
-       
-//        
-      // }
-        
-      
-        
+
+        String telephone = request.getParameter("numTelephone");
+        String NumeroVol = request.getParameter("numVol");
+
         try (PrintWriter out = response.getWriter()) {
-            RequestDispatcher view = request.getRequestDispatcher("/alertes-sms.jsp");
-          view.forward(request, response);
-          
-           AlertesSmsDAO dao = new AlertesSmsDAO();
-        
-       //int nvol = Integer.parseInt(NumeroVol);
-       dao.inscrire(telephone,NumeroVol);
+            //String phone = "1234567890";
+            if (telephone == "") {
+                RequestDispatcher view = request.getRequestDispatcher("/alertes-sms_Err1.jsp");
+                view.forward(request, response);
+            } else if (NumeroVol == "") {
+                RequestDispatcher view = request.getRequestDispatcher("/alertes-sms_Err2.jsp");
+                view.forward(request, response);
+            } else {
+                RequestDispatcher view = request.getRequestDispatcher("/alertes-sms.jsp");
+                view.forward(request, response);
+
+                AlertesSmsDAO dao = new AlertesSmsDAO();
+                //int nvol = Integer.parseInt(NumeroVol);
+                dao.inscrire(telephone, NumeroVol);
+            }
         }
+
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -75,8 +73,10 @@ public class Alertes_sms extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+
         } catch (SQLException ex) {
-            Logger.getLogger(Alertes_sms.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Alertes_sms.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -93,8 +93,10 @@ public class Alertes_sms extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+
         } catch (SQLException ex) {
-            Logger.getLogger(Alertes_sms.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Alertes_sms.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
