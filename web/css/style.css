@@ -1,6 +1,8 @@
 body {
     margin-left: auto;
     margin-right: auto;
+    background-image:  url("/images/avion.jpg");
+    
 }
 p{
     color: aliceblue;
@@ -61,13 +63,15 @@ header {
 /******** SIDEBAR ********/
 #sidebar {
     width: 100px;
-   
+
   
 
 }
 #sidebar li{
+
     text-align: right;
     background-color: #1E90FF;
+    
 }
 .lead{
      color: black;

@@ -7,11 +7,11 @@
     <jsp:include page="head.jsp" />
 
 
-    <body  style="background-image:  url('avion.jpg')">
+    <body>
         <!-- HEADER -->
         <header>
             <p id="title-header">AÉROPORT DE MONTRÉAL</p>
-           <!-- <p class="intro">Bienvenue!</p>-->
+            <p class="intro"><strong>Groupe 4:</strong> Valentia, Olesea, Ganna, Tatyana, Diallo, Tahiry, Vitaliy</p>
         </header>
 
         <div class=" flex-container row p-3">
@@ -39,10 +39,11 @@
 
                     
                 </div>
-               
+   
                
  
             </div><!-- END ROW -->
+            
         </div><!-- END SECTION -->
 
 

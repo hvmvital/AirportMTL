@@ -33,7 +33,7 @@
     <jsp:include page="head.jsp" />
 
 
-    <body style="background-image:  url('avion.jpg')">
+    <body >
         <!-- HEADER -->
         <header>
             <p id="title-header">Départs</p>
@@ -112,13 +112,13 @@
                                 <td><%= vols.getNOM_AEROPORT()%></td>
                                 <td><%= vols.getNOM_STATUT()%></td>
                                 <td><%= vols.getPORT()%></td>  
-                                <td><a href="/alertes-sms.jsp" >  <!-- servlet SMS a changer -->
-                                        <img src="images/sms.png"
-                                             width="35"
-                                             alt="Notification SMS" 
-                                             title="Notification SMS"></a>
-                                </td>  
-                            </tr>
+                                <td><a href="/alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
+                                       <img src="images/sms.png"
+                                            width="35"
+                                            alt="Notification SMS"
+                                            title="Notification SMS"></a>
+                               </td>
+                           </tr>
 
                             <% }%>
                         </tbody>
@@ -150,13 +150,13 @@
                                 <td><%= vols.getNOM_AEROPORT()%></td>
                                 <td><%= vols.getNOM_STATUT()%></td>
                                 <td><%= vols.getPORT()%></td>  
-                                <td><a href="/alertes-sms.jsp" >  <!-- servlet SMS a changer -->
-                                        <img src="images/sms.png"
-                                             width="35"
-                                             alt="Notification SMS" 
-                                             title="Notification SMS"></a>
-                                </td> 
-                            </tr>   
+                                <td><a href="/alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
+                                       <img src="images/sms.png"
+                                            width="35"
+                                            alt="Notification SMS"
+                                            title="Notification SMS"></a>
+                               </td>
+                           </tr> 
 
                             <% }
                             %>

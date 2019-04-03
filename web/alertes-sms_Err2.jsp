@@ -1,13 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-     String NumeroVol2;
-  if(request.getParameter("numVol2") != null){
-   NumeroVol2 = request.getParameter("numVol2");
-  } else {
-  NumeroVol2 = "Numero de Vol";
-  }
-%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,31 +14,33 @@
             <p id="title-header">Alerte SMS</p>
             <p class="intro">Restez informé en tout temps!</p>
         </header>
-
+        <div class="alert alert-danger col-12 w-50 ml-auto mr-auto" role="alert">
+            Le numero de vol est invalide ou manquant.
+        </div>
         <div class=" flex-container row p-3">
 
             <!-- SIDEBAR -->
             <jsp:include page="sidebar.jsp" />
-
+            
             <div class="section col-12 col-md-9">
+                
                 <form action="alertes_sms"  method="GET">
                     <div class="form-row">
                         <div class="form-group  col-12 col-md-4">
+                           
                             <input 
                                 type="text" 
                                 class="form-control" 
                                 name="numTelephone" 
                                 placeholder="Télephone">
                         </div>
-                        <div class="form-group col-12 col-md-4">
-
+                        
+                        <div class="form-group col-12 col-md-4">                        
                             <input 
                                 type="text" 
                                 class="form-control" 
                                 name="numVol" 
-                                placeholder="<%= NumeroVol2 %>"
-                                value="<%= NumeroVol2 %>" 
-                             >
+                                placeholder="Numéro de vol">
                         </div>
                         <div class="form-group col-12 col-md-4">
                             <button type="submit" class="btn btn-primary">M'inscrire</button>
