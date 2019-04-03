@@ -8,7 +8,7 @@
     <!-- HEAD -->
     <jsp:include page="head.jsp" />
 
-    <body>
+    <body style="background-image:  url('avion.jpg')">
         <!-- HEADER -->
         <header>
             <p id="title-header">Alerte SMS</p>

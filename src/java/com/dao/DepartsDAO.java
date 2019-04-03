@@ -37,8 +37,8 @@ public class DepartsDAO {
                     + "     and v.ID_aeroport=a.id"
                     + "     and a.ID_VILLE= l.id"
                     + "     and v.type=1 "
-//                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()))"
-                    + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%') "
+                    + "     and (v.heure_prevu >=(SELECT TIME(SYSDATE())) or d.heure_revise>=(SELECT TIME(SYSDATE())) ) "
+                    + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%' or v.NumeroVol like '%"+filtre+"%') "
                     + "     ORDER BY v.HEURE_PREVU";
             preparedStatement = con.prepareStatement(query);
 
@@ -129,7 +129,7 @@ public class DepartsDAO {
                     + "     and a.ID_VILLE= l.id"
                     + "     and v.type=1"
 //                    + "     and d.date_prevu=(SELECT DATE(SYSDATE()+ INTERVAL 1 DAY))"
-                    + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%') "
+                    + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%' or v.NumeroVol like '%"+filtre+"%') "
                     + "     ORDER BY v.HEURE_PREVU";
             preparedStatement = con.prepareStatement(query);
 

@@ -21,12 +21,11 @@
     Date today_date = calendar.getTime();
     String today = sdf.format(today_date);
 
-
     calendar.add(Calendar.DAY_OF_YEAR, 1);
     Date tomorrow_date = calendar.getTime();
     String tomorrow = sdf.format(tomorrow_date);
-    
-       
+
+
 %>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,7 +33,7 @@
     <jsp:include page="head.jsp" />
 
 
-    <body>
+    <body style="background-image:  url('avion.jpg')">
         <!-- HEADER -->
         <header>
             <p id="title-header">Départs</p>
@@ -51,15 +50,15 @@
                     <!-- RECHERCHE -->
                     <div class="input-group input-group-md mt-0 mb-2 p-0 col-12">
                         <form action="departs" method="GET">
+                            <div class="d-inline">
                             <input type="text" 
                                    name="filtre"
-                                   class="form-control" 
                                    placeholder="Cherchez un vol..." 
                                    aria-label="Cherchez un vol..." 
                                    aria-describedby="basic-addon2"
                                    >
 
-                            <div class="input-group-append">
+                            
                                 <button type="submit" class="btn btn-primary" >Chercher</button> 
                             </div>
                         </form>
@@ -90,13 +89,13 @@
                         <tbody id="aujourdhui">
                             <tr class="bg-primary text-light">
                                 <td colspan="8">
-                                    <p class="time p-0 m-0"><%= today %></p>
+                                    <p class="time p-0 m-0"><%= today%></p>
                                 </td>
 
                             </tr>
                             <%
                                 for (Vols vols : departsList) {
-                                    
+
                             %>
                             <tr >
                                 <td>
@@ -121,7 +120,7 @@
                                 </td>  
                             </tr>
 
-                            <% }  %>
+                            <% }%>
                         </tbody>
 
                         <!-- DEMAIN -->

@@ -7,7 +7,7 @@
     <jsp:include page="head.jsp" />
 
 
-    <body>
+    <body  style="background-image:  url('avion.jpg')">
         <!-- HEADER -->
         <header>
             <p id="title-header">AÉROPORT DE MONTRÉAL</p>
@@ -19,18 +19,18 @@
             <div class="section col-12 col-md-9">
                 <div class="row p-3 pt-0">
                     <!-- RECHERCHE -->
-                    <div class="input-group input-group-md mt-3 mb-3 p-0 col-12">
+                    <!-- <div class="input-group input-group-md mt-3 mb-3 p-0 col-12">
                         <input type="text" 
                                class="form-control" 
                                placeholder="Cherchez un vol..." 
                                aria-label="Cherchez un vol..." 
                                aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <!--BTN Chercher-->
+                        <div class="input-group-append">-->
+                            <!--BTN Chercher
                             <a href="#filtrageDepart" class="btn btn-primary" role="button">Chercher</a>  
                             
-                        </div>
-                    </div>
+                        </div> 
+                    </div> -->
                     <!--BTN DÉPARTS-->
                      <a href="/departs" class="btn btn-danger col-6 col-sm-6" role="button">DÉPARTS</a>       
                     
