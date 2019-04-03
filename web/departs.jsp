@@ -26,9 +26,7 @@
     Date tomorrow_date = calendar.getTime();
     String tomorrow = sdf.format(tomorrow_date);
     
-    Calendar cal = Calendar.getInstance();
-    Date currentTime = cal.getTime();
-    
+       
 %>
 <!DOCTYPE html>
 <html lang="fr">
@@ -98,7 +96,7 @@
                             </tr>
                             <%
                                 for (Vols vols : departsList) {
-                                    if(vols.getHeure_prevu().after(today_date)){
+                                    
                             %>
                             <tr >
                                 <td>
@@ -123,8 +121,7 @@
                                 </td>  
                             </tr>
 
-                            <% }}
-                            %>
+                            <% }  %>
                         </tbody>
 
                         <!-- DEMAIN -->

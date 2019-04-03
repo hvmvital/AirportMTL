@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Vols {
     private int ID;
     private String NumeroVol;
-    private Time Heure_prevu;
+    private String Heure_prevu;
     private String HEURE_REVISE;
     private Date DATE_REVISE;
     private int ID_AEROPORT;
@@ -22,7 +22,7 @@ public class Vols {
     public Vols(
             int ID, 
             String NumeroVol, 
-            Time Heure_prevu,
+            String Heure_prevu,
             String HEURE_REVISE,
             Date DATE_REVISE, 
             int ID_AEROPORT, 
@@ -120,11 +120,11 @@ public class Vols {
         this.NumeroVol = NumeroVol;
     }
 
-    public Time getHeure_prevu() {
+    public String getHeure_prevu() {
         return Heure_prevu;
     }
 
-    public void setHeure_prevu(Time Heure_prevu) {
+    public void setHeure_prevu(String Heure_prevu) {
         this.Heure_prevu = Heure_prevu;
     }
 
