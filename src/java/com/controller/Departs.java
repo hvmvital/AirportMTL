@@ -44,8 +44,8 @@ public class Departs extends HttpServlet {
         request.setAttribute("DEPARTS_DEMAIN", departsListDemain);
         //request.setAttribute("PAGE_TITLE", pageTitle);
         
-        String destination = "departs.jsp";
-        request.getRequestDispatcher(destination).forward(request, response);
+  
+        request.getRequestDispatcher("/departs.jsp").forward(request, response);
 
     }
 

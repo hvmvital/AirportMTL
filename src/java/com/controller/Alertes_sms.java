@@ -39,33 +39,30 @@ public class Alertes_sms extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("PAGE_TITLE", "Alerte SMS");
-        
+
         String telephone = request.getParameter("numTelephone");
         String numeroVol = request.getParameter("numVol");
-        String error_message_tel = "";
-        String error_message_vol = "";
 
-        //String phone = "1234567890";
-            if ("".equals(telephone) || telephone == null) {
-                error_message_tel = "Le numero de telephone cellulaire est invalide ou manquant!"; 
-                session.setAttribute("ERROR_NUM_TEL", error_message_tel);
-                
-                     
-            } else if (numeroVol == null) {
-                error_message_vol = "Le numero de vol est invalide ou manquant!";
-                session.setAttribute("ERROR_NUM_VOL", error_message_tel);
+        String error_message_tel = "Le numero de telephone cellulaire est invalide ou manquant!";
+        String error_message_vol = "Le numero de vol est invalide ou manquant!";
+
+        if (telephone == null || "".equals(telephone)) {
+
+            //request.setAttribute("ERROR_NUM_TEL", error_message_tel);
+            session.setAttribute("ERROR_NUM_TEL", error_message_tel);
+
+            if (numeroVol == null || "".equals(numeroVol)) {
+
+                //request.setAttribute("ERROR_NUM_VOL", error_message_vol);
+                session.setAttribute("ERROR_NUM_VOL", error_message_vol);
             } else {
 
                 AlertesSmsDAO dao = new AlertesSmsDAO();
-                //int nvol = Integer.parseInt(NumeroVol);
                 dao.inscrire(telephone, numeroVol);
             }
-        
-        //request.setAttribute("ERROR_MESSAGE", error_message);    
-            
-        String destination = "alertes-sms.jsp";
-        request.getRequestDispatcher(destination).forward(request, response);
-        
+        }
+
+        request.getRequestDispatcher("/alertes-sms.jsp").forward(request, response);
 
     }
 

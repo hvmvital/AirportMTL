@@ -72,7 +72,7 @@ header {
 }
 
 input[type="text"]{
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.2);
     outline: none;
     -webkit-box-shadow: none;
@@ -128,18 +128,29 @@ input[type="text"]{
 
 #groupe4{
     color: white;
-    margin: 100px auto 0;
+    margin: 200px auto 0;
     padding: 10px;
     display: flex;
-    justify-content: flex-start;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
 
 }
 #groupe4 div {
-    margin: 10px;
+    margin: 5px;
     color: white;
 }
 
+#prof{
+    color: white;
+    margin: 15px auto 0;
+    padding: 10px;
+    display: flex;
 
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+
+}
 /******** VOLS ********/
 #vols {
     width: 100%;
