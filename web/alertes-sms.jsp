@@ -1,15 +1,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String NumeroVol2 = null;
+    String NumeroVol2;
     String NumeroVol_placeHolder = null;
     String error_message;
 
     if (request.getParameter("numVol2") != null) {
         NumeroVol2 = request.getParameter("numVol2");
+        NumeroVol_placeHolder = NumeroVol2;
     } else {
         NumeroVol_placeHolder = "Numero de Vol";
-        NumeroVol2 = "";
+        NumeroVol2="";
     }
     
     
@@ -63,7 +64,7 @@
                                 type="text" 
                                 class="form-control" 
                                 name="numVol" 
-                                placeholder="<%= NumeroVol_placeHolder %>"
+                                placeholder="Numero de Vol"
                                 value="<%= NumeroVol2%>" 
                                 >
                         </div>
