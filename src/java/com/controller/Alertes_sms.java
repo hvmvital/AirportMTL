@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,26 +37,35 @@ public class Alertes_sms extends HttpServlet {
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
 
+        HttpSession session = request.getSession();
+        session.setAttribute("PAGE_TITLE", "Alerte SMS");
+        
         String telephone = request.getParameter("numTelephone");
-        String NumeroVol = request.getParameter("numVol");
+        String numeroVol = request.getParameter("numVol");
+        String error_message_tel = "";
+        String error_message_vol = "";
 
-        try (PrintWriter out = response.getWriter()) {
-            //String phone = "1234567890";
-            if (telephone == "") {
-                RequestDispatcher view = request.getRequestDispatcher("/alertes-sms_Err1.jsp");
-                view.forward(request, response);
-            } else if (NumeroVol == "") {
-                RequestDispatcher view = request.getRequestDispatcher("/alertes-sms_Err2.jsp");
-                view.forward(request, response);
+        //String phone = "1234567890";
+            if ("".equals(telephone) || telephone == null) {
+                error_message_tel = "Le numero de telephone cellulaire est invalide ou manquant!"; 
+                session.setAttribute("ERROR_NUM_TEL", error_message_tel);
+                
+                     
+            } else if (numeroVol == null) {
+                error_message_vol = "Le numero de vol est invalide ou manquant!";
+                session.setAttribute("ERROR_NUM_VOL", error_message_tel);
             } else {
-                RequestDispatcher view = request.getRequestDispatcher("/alertes-sms.jsp");
-                view.forward(request, response);
 
                 AlertesSmsDAO dao = new AlertesSmsDAO();
                 //int nvol = Integer.parseInt(NumeroVol);
-                dao.inscrire(telephone, NumeroVol);
+                dao.inscrire(telephone, numeroVol);
             }
-        }
+        
+        //request.setAttribute("ERROR_MESSAGE", error_message);    
+            
+        String destination = "alertes-sms.jsp";
+        request.getRequestDispatcher(destination).forward(request, response);
+        
 
     }
 

@@ -1,19 +1,29 @@
 body {
     margin-left: auto;
     margin-right: auto;
-    background-image:  url("/images/avion.jpg");
+    background-image:  url("../images/avion.jpg");
     
 }
 p{
     color: aliceblue;
 }
+#navbarID{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
 
+}
 .title {
     color: #000;
     font-size: 3.5rem;
     font-weight: 300;
     line-height: 1.2;
     text-align: center;
+}
+.lead{
+     color: black;
+     font-weight: 600;
+     
 }
 
 .intro {
@@ -28,9 +38,11 @@ p{
 
 /******** HEADER ********/
 header {
-  margin: 0 auto 0;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 1400px;
     padding: 10px 0 5px;
+    margin-bottom: 50px;
 }
 #title-header {
     font-size: 2.3rem;
@@ -45,26 +57,38 @@ header {
     margin: 0 auto;
     padding: 10px;
     max-width: 1000px;
-    display: flex;
-    justify-content: flex-start;
+    //display: flex;
+    //justify-content: flex-start;
 }
 
 .section {
     margin: 0 auto;
-    width: 100%;
-    display: flex;
+    max-width: 1000px;
+    //display: flex;
 
-    justify-content: flex-start;
-    flex-direction: column;
+    //justify-content: flex-start;
+    //flex-direction: column;
 
+}
+
+input[type="text"]{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    
+    color:transparent;
+    cursor:default;
 }
 
 
 /******** SIDEBAR ********/
+/*
 #sidebar {
     width: 100px;
 
-  
 
 }
 #sidebar li{
@@ -73,11 +97,8 @@ header {
     background-color: #1E90FF;
     
 }
-.lead{
-     color: black;
-     font-weight: 600;
-     
-}
+*/
+
 /*
 #sidebar a {
     color: black;
@@ -88,7 +109,7 @@ header {
     line-height: 1.4;
     text-shadow: 3px 1px 0 gold;
 }
-*/
+
 #sidebar a:hover {
     color: black;
     transition: .2s;
@@ -97,19 +118,33 @@ header {
     background-color: gold;
 
 }
+
 #image{
     background-image: url("avion.jpg");
 }
+*/
 
+/******** GROUPE 4 ********/
 
+#groupe4{
+    color: white;
+    margin: 100px auto 0;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
 
-
+}
+#groupe4 div {
+    margin: 10px;
+    color: white;
+}
 
 
 /******** VOLS ********/
 #vols {
     width: 100%;
     text-align: center;
+    
 }
 #vols table{
 

@@ -18,6 +18,7 @@ public class DepartsDAO {
     public static ArrayList<Vols> departsList;
     public static ArrayList<Vols> departsListDemain;
     
+    
     public ArrayList<Vols> showDeparts(String filtre) throws SQLException {
         
         PreparedStatement preparedStatement = null;
