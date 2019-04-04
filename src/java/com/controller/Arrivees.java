@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,6 +28,9 @@ public class Arrivees extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("PAGE_TITLE", "Arrivées");
 
         String filtre = request.getParameter("filtre");
         ArriveesDAO dao = new ArriveesDAO();

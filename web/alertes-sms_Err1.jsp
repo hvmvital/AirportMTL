@@ -17,7 +17,7 @@
         <div class="alert alert-danger col-12 w-50 ml-auto mr-auto" role="alert">
             Le numero de telephone cellulaire est invalide ou manquant.
         </div>
-        <div class=" flex-container row p-3">
+        <div class="flex-container row p-3">
 
             <!-- SIDEBAR -->
             <jsp:include page="sidebar.jsp" />

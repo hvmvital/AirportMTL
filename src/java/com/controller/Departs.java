@@ -15,13 +15,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author kontour
  */
 public class Departs extends HttpServlet {
-
+    
     
     public static ArrayList<Vols> departsList;
     public static ArrayList<Vols> departsListDemain;
@@ -30,6 +31,10 @@ public class Departs extends HttpServlet {
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         
+        HttpSession session = request.getSession();
+        session.setAttribute("PAGE_TITLE", "Départs");
+        
+        
         String filtre=request.getParameter("filtre");
         DepartsDAO dao = new DepartsDAO();
         departsList = dao.showDeparts(filtre);
@@ -37,8 +42,9 @@ public class Departs extends HttpServlet {
         
         request.setAttribute("DEPARTS", departsList);
         request.setAttribute("DEPARTS_DEMAIN", departsListDemain);
+        //request.setAttribute("PAGE_TITLE", pageTitle);
         
-        String destination = "/departs.jsp";
+        String destination = "departs.jsp";
         request.getRequestDispatcher(destination).forward(request, response);
 
     }

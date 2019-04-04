@@ -33,41 +33,42 @@
 
     <body>
         <!-- HEADER -->
+        <jsp:include page="header.jsp" />
+        
+        <!--
         <header>
-            <p id="title-header">Arrivées</p>
-            <p class="intro">Bienvenue!</p>
+            <p class="title">Arrivées</p>
+             <p class="intro">Bienvenue!</p>
         </header>
-
-        <div class=" flex-container row p-3">
-
-            <!-- SIDEBAR -->
-            <jsp:include page="sidebar.jsp" />
-
-
-            <div class="section col-12 col-md-9">
-                <div class="row pr-3 pl-3 pb-1 pt-0 mt-0">
-                    <!-- RECHERCHE -->
-                    <div class="input-group  input-group-md mt-0 mb-2 p-0 col-12">
-                        <form action="arrivees"  method="GET">
-                            <div class="d-inline">
-                                <input type="text" 
-                                       name="filtre"
-                                       placeholder="Cherchez un vol..." 
-                                       aria-label="Cherchez un vol..." 
-                                       aria-describedby="basic-addon2"
-                                       >
-
-
-                                <button type="submit" class="btn btn-primary" >Chercher</button> 
-                            </div>
-                        </form>
+        -->
+        
+        <div class="section row p-3">
+            <!-- RECHERCHE -->                  
+            <div class="input-group mb-3 p-0 col-12 ">
+                <form class="input-group" action="arrivees" method="GET">
+                    <input class="form-control"
+                           type="text" 
+                           name="filtre"
+                           placeholder="Cherchez un vol..." 
+                           aria-label="Cherchez un vol..." 
+                           aria-describedby="basic-addon2"
+                           >
+                    <div class="input-group-append">
+                        <button 
+                            type="submit" 
+                            class="btn btn-danger" >Chercher
+                        </button> 
                     </div>
+                </form>
+            </div>
+            
+            
                     <!--BTN AUJOURD'HUI-->
                     <a  href="#" id="bntToday" class="btn btn-primary col-3 col-sm-3" role="button">AUJOURD'HUI</a>       
 
                     <!--BTN DEMAIN-->
                     <a href="#" id="bntTomorrow" class="btn btn-warning col-3 col-sm-3" role="button">DEMAIN</a> 
-                </div>
+            
                 <!-- VOLS -->
                 <div id="vols"  class="mt-1 p-0"> 
                     <table class="table table-dark">
