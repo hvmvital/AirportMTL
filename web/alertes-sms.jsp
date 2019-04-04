@@ -45,8 +45,7 @@
 
         <div class=" flex-container row p-3">
 
-            <!-- SIDEBAR -->
-            <jsp:include page="sidebar.jsp" />
+            
 
             <div class="section col-12 col-md-9">
                 <form action="alertes_sms"  method="GET">
