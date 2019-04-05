@@ -16,10 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author kontour
- */
+
 public class Arrivees extends HttpServlet {
 
     public static ArrayList<Vols> arriveesList;

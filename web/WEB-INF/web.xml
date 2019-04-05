@@ -11,7 +11,6 @@
         <servlet-name>Departs</servlet-name>
         <servlet-class>com.controller.Departs</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>Arrivees</servlet-name>
         <servlet-class>com.controller.Arrivees</servlet-class>
@@ -40,12 +39,9 @@
         <servlet-name>Vols</servlet-name>
         <url-pattern>/vols</url-pattern>
     </servlet-mapping>
-    
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Alertes_sms</servlet-name>
         <url-pattern>/alertes_sms</url-pattern>
-        <url-pattern>/alertes_sms_Err1</url-pattern>
-        <url-pattern>/alertes_sms_Err2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FiltreDeparts</servlet-name>

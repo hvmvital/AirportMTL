@@ -37,7 +37,8 @@ public class ArriveesDAO {
                     + "     and v.ID_aeroport=a.id"
                     + "     and a.ID_VILLE= l.id"
                     + "     and v.type=2"
-                       + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%' or v.NumeroVol like '%"+filtre+"%') "
+                    + "     and (v.heure_prevu >=(SELECT TIME(SYSDATE())) or d.heure_revise>=(SELECT TIME(SYSDATE())) ) "
+                    + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%' or v.NumeroVol like '%"+filtre+"%') "
                      + "    ORDER BY v.HEURE_PREVU"; 
             preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
 

@@ -20,22 +20,25 @@ public class AlertesSmsDAO {
     ResultSet rs = null;
     int ID_VOL;
     
-    public void inscrire(String telephone, String NumeroVol) throws SQLException{
+    public void inscrire(String telephone, String numeroVol) throws SQLException{
         try {
          con = ConnectionDB.createConnection();   
         stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         
         stmt = con.createStatement();
-        
-        String querySelectID = "SELECT ID from vols WHERE NumeroVol = '"+ NumeroVol +"'";
+       
+        String querySelectID = "SELECT ID from vols WHERE NumeroVol = '"+ numeroVol +"'";
         preparedStatement = con.prepareStatement(querySelectID);
         
         ResultSet rs = preparedStatement.executeQuery();
         
         
-        while (rs.next()) {
-                ID_VOL = rs.getInt("ID");
+        
+        if (rs.next()) {
+                ID_VOL = rs.getInt("ID");      
         }
+       
+ 
         
         String queryInsert = "INSERT INTO inscrits(TELEPHONE, ID_VOL) "
                 + "VALUES('"+ telephone +"','"+ ID_VOL +"')";

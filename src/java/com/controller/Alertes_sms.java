@@ -18,21 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author kontour
- */
+
 public class Alertes_sms extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -42,25 +30,40 @@ public class Alertes_sms extends HttpServlet {
 
         String telephone = request.getParameter("numTelephone");
         String numeroVol = request.getParameter("numVol");
+        
 
-        String error_message_tel = "Le numero de telephone cellulaire est invalide ou manquant!";
-        String error_message_vol = "Le numero de vol est invalide ou manquant!";
+        //String error_message_tel = "Le numero de telephone cellulaire est invalide ou manquant!";
+        //String error_message_vol = "Le numero de vol est invalide ou manquant!";
 
-        if (telephone == null || "".equals(telephone)) {
+        //session.setAttribute("ERROR_NUM_TEL_VISIBILITY", "hidden");
+       // session.setAttribute("ERROR_NUM_VOL_VISIBILITY", "hidden");
+        //session.setAttribute("CHECK_VALUES", "0");
+        
+        Boolean telTrue = true;
+        Boolean volTrue = true;
 
-            //request.setAttribute("ERROR_NUM_TEL", error_message_tel);
-            session.setAttribute("ERROR_NUM_TEL", error_message_tel);
+        
+        
+      //if (session.getAttribute("CHECK_VALUES").equals("1")) {
+            if (telephone == null || "".equals(telephone)) {
 
+                //request.setAttribute("ERROR_NUM_TEL", error_message_tel);
+               // session.setAttribute("ERROR_NUM_TEL", error_message_tel);
+               // session.setAttribute("ERROR_NUM_TEL_VISIBILITY", "visible");
+                telTrue = false;
+            }
             if (numeroVol == null || "".equals(numeroVol)) {
 
                 //request.setAttribute("ERROR_NUM_VOL", error_message_vol);
-                session.setAttribute("ERROR_NUM_VOL", error_message_vol);
-            } else {
-
+                //session.setAttribute("ERROR_NUM_VOL", error_message_vol);
+                //session.setAttribute("ERROR_NUM_VOL_VISIBILITY", "visible");
+                volTrue = false;
+            }
+            if (volTrue && telTrue) {
                 AlertesSmsDAO dao = new AlertesSmsDAO();
                 dao.inscrire(telephone, numeroVol);
             }
-        }
+      // } 
 
         request.getRequestDispatcher("/alertes-sms.jsp").forward(request, response);
 

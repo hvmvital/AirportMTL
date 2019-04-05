@@ -23,7 +23,7 @@ $(document).ready(function () {
         element.appendChild(para);
 
         //groupe.splice(randomNumber, 1);
-         ctr--;
+        ctr--;
         temp = groupe[ctr];
         groupe[ctr] = groupe[index];
         groupe[index] = temp;
