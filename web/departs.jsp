@@ -1,3 +1,4 @@
+<%@page import="com.controller.Departs"%>
 <%@page import="java.sql.Time"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -11,8 +12,8 @@
 
 
 <%
-    ArrayList<Vols> departsList = (ArrayList) request.getAttribute("DEPARTS");
-    ArrayList<Vols> departsListDemain = (ArrayList) request.getAttribute("DEPARTS_DEMAIN");
+    //ArrayList<Vols> departsList = (ArrayList) request.getAttribute("DEPARTS");
+    //ArrayList<Vols> departsListDemain = (ArrayList) request.getAttribute("DEPARTS_DEMAIN");
     
     
     SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");
@@ -104,7 +105,7 @@
 
                         </tr>
                         <%
-                            for (Vols vols : departsList) {
+                            for (Vols vols : Departs.departsList) {
 
                         %>
                         <tr >
@@ -143,7 +144,7 @@
 
                         </tr>
                         <%
-                            for (Vols vols : departsListDemain) {
+                            for (Vols vols : Departs.departsListDemain) {
                         %>
 
                         <tr>

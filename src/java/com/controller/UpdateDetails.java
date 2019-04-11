@@ -1,48 +1,36 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.controller;
 
-import com.dao.DepartsDAO;
-import com.model.Vols;
+import com.connection.ConnectionDB;
+import com.dao.UpdateDetailsDAO;
+
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+//import jdk.nashorn.internal.parser.JSONParser;
 
 
-public class Departs extends HttpServlet {
-    
-    
-    public static ArrayList<Vols> departsList;
-    public static ArrayList<Vols> departsListDemain;
+public class UpdateDetails extends HttpServlet {
+
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-        
-        HttpSession session = request.getSession();
-        session.setAttribute("PAGE_TITLE", "Départs");
-        
-        
-        String filtre=request.getParameter("filtre");
-        DepartsDAO dao = new DepartsDAO();
-        departsList = dao.showDeparts(filtre);
-        departsListDemain = dao.showDepartsDemain(filtre);
-        
-        //request.setAttribute("DEPARTS", departsList);
-        //request.setAttribute("DEPARTS_DEMAIN", departsListDemain);
-        //request.setAttribute("PAGE_TITLE", pageTitle);
-        
-  
-        request.getRequestDispatcher("/departs.jsp").forward(request, response);
+
+        UpdateDetailsDAO dao = new UpdateDetailsDAO();
+        dao.updateDetails();
+
+        request.getRequestDispatcher("/vols.jsp").forward(request, response);
 
     }
 
@@ -60,8 +48,8 @@ public class Departs extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Departs.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(UpdateDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -78,8 +66,8 @@ public class Departs extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Departs.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(UpdateDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

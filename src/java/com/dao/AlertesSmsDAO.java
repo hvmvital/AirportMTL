@@ -42,6 +42,12 @@ public class AlertesSmsDAO {
         
         String queryInsert = "INSERT INTO inscrits(TELEPHONE, ID_VOL) "
                 + "VALUES('"+ telephone +"','"+ ID_VOL +"')";
+        
+  
+        
+//        String queryInsert = "INSERT INTO details (ID_VOL, DATE_PREVU, PORTE, STATUT) "
+//                   + "values (1,'2019-04-15','B33',1)";
+        
         stmt.executeUpdate(queryInsert);
 
         }

@@ -6,6 +6,7 @@
 package com.controller;
 
 import com.dao.AlertesSmsDAO;
+import com.dao.UpdateDetailsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -62,6 +63,7 @@ public class Alertes_sms extends HttpServlet {
             if (volTrue && telTrue) {
                 AlertesSmsDAO dao = new AlertesSmsDAO();
                 dao.inscrire(telephone, numeroVol);
+                
             }
       // } 
 

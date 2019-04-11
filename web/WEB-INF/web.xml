@@ -27,6 +27,10 @@
         <servlet-name>FiltreDeparts</servlet-name>
         <servlet-class>com.controller.FiltreDeparts</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateDetails</servlet-name>
+        <servlet-class>com.controller.UpdateDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Departs</servlet-name>
         <url-pattern>/departs</url-pattern>
@@ -46,6 +50,10 @@
     <servlet-mapping>
         <servlet-name>FiltreDeparts</servlet-name>
         <url-pattern>/filtreDeparts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDetails</servlet-name>
+        <url-pattern>/updateDetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
