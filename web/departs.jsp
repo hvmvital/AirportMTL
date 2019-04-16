@@ -123,7 +123,7 @@
                             <td><%= vols.getNOM_AEROPORT()%></td>
                             <td><%= vols.getNOM_STATUT()%></td>
                             <td><%= vols.getPORT()%></td>  
-                            <td><a href="/alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
+                            <td><a href="alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
                                     <img src="images/sms.png"
                                          width="35"
                                          alt="Notification SMS"
@@ -161,7 +161,7 @@
                             <td><%= vols.getNOM_AEROPORT()%></td>
                             <td><%= vols.getNOM_STATUT()%></td>
                             <td><%= vols.getPORT()%></td>  
-                            <td><a href="/alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
+                            <td><a href="alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
                                     <img src="images/sms.png"
                                          width="35"
                                          alt="Notification SMS"

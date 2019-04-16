@@ -33,10 +33,10 @@
                 </div> 
             </div> -->
                     <!--BTN DÉPARTS-->
-                    <a href="/departs" class="btn btn-danger col-6 col-sm-6" role="button">DÉPARTS</a>       
+                    <a href="departs" class="btn btn-danger col-6 col-sm-6" role="button">DÉPARTS</a>       
 
                     <!--BTN ARRIVÉES-->
-                    <a href="/arrivees" class="btn btn-warning col-6 col-sm-6" role="button">ARRIVÉES</a>   
+                    <a href="arrivees" class="btn btn-warning col-6 col-sm-6" role="button">ARRIVÉES</a>   
 
 
                     <section id='groupe4' class="section p-0 text-light pl-2 pr-2">

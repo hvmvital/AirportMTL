@@ -2,7 +2,7 @@
 <header >
     <nav id="navbarID" class="navbar navbar-expand-md navbar-dark pl-5 pr-5">
         <div class="d-flex w-50 mr-auto pt-3">
-        <a href="/vols" class=" mr-auto">
+        <a href="vols" class=" mr-auto">
             <img width="80"
                  height="80"
                  align="center" 
@@ -39,13 +39,13 @@
                 
 
                 <li class="nav-item">
-                    <a class="nav-link  text-light mr-2" href="/departs">Départs</a>
+                    <a class="nav-link  text-light mr-2" href="departs">Départs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-light ml-2" href="/arrivees">Arrivées</a>
+                    <a class="nav-link  text-light ml-2" href="arrivees">Arrivées</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-light ml-2 pr-0" href="/alertes_sms">Alertes SMS</a>
+                    <a class="nav-link  text-light ml-2 pr-0" href="alertes_sms">Alertes SMS</a>
                 </li>
             </ul>
 
