@@ -6,7 +6,6 @@
 package com.controller;
 
 import com.dao.AlertesSmsDAO;
-import com.dao.UpdateDetailsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
