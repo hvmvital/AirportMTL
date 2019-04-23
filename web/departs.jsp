@@ -150,11 +150,11 @@
                         <tr>
                             <td>
                                 <p class="time p-0 m-0"><%= vols.getHeure_prevu()%></p>
-                                <%= tomorrow%>
+                                <%= tomorrow %>
                             </td>
                             <td>
                                 <p class="time p-0 m-0"><%= vols.getHEURE_REVISE()%></p>
-                                <%= sdf.format(vols.getDATE_REVISE())%>
+                               <%= tomorrow %>
                             </td>
                             <td><%= vols.getNOM_COMPAGNIE()%></td>
                             <td class="numVol text-info"><%= vols.getNumeroVol()%></td>

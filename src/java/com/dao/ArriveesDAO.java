@@ -16,7 +16,7 @@ import java.util.Calendar;
 
 public class ArriveesDAO {
      public static ArrayList<Vols> arriveesList;
-      public static ArrayList<Vols> arriveesListDemain;
+     public static ArrayList<Vols> arriveesListDemain;
 
     public ArrayList<Vols> showArrivees(String filtre) throws SQLException {
 
@@ -40,7 +40,7 @@ public class ArriveesDAO {
                     + "     and (v.heure_prevu >=(SELECT TIME(SYSDATE())) or d.heure_revise>=(SELECT TIME(SYSDATE())) ) "
                     + "     and  (a.NOM like '%"+filtre+"%' or c.NOM like '%"+filtre+"%' or v.NumeroVol like '%"+filtre+"%') "
                      + "    ORDER BY v.HEURE_PREVU"; 
-            preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
+            preparedStatement = con.prepareStatement(query); 
 
             ResultSet rs = preparedStatement.executeQuery();
 

@@ -108,7 +108,7 @@
                                 <td class="numVol text-info"><%= vols.getNumeroVol()%></td>
                                 <td><%= vols.getNOM_AEROPORT()%></td>
                                 <td><%= vols.getNOM_STATUT()%></td>
-                                <td><a href="/alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
+                                <td><a href="alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
                                        <img src="images/sms.png"
                                             width="35"
                                             alt="Notification SMS"
@@ -139,13 +139,13 @@
                                 </td>
                                 <td>
                                     <p class="time p-0 m-0"><%= vols.getHEURE_REVISE()%></p>
-                                    <%= sdf.format(vols.getDATE_REVISE())%>
+                                    <%= tomorrow %>
                                 </td>
                                 <td><%= vols.getNOM_COMPAGNIE()%></td>
                                 <td class="numVol text-info"><%= vols.getNumeroVol()%></td>
                                 <td><%= vols.getNOM_AEROPORT()%></td>
                                 <td><%= vols.getNOM_STATUT()%></td>
-                                <td><a href="/alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
+                                <td><a href="alertes-sms.jsp?numVol2=<%= vols.getNumeroVol()%>" >  <!-- servlet SMS a changer -->
                                        <img src="images/sms.png"
                                             width="35"
                                             alt="Notification SMS"
